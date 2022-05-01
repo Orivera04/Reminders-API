@@ -1,6 +1,6 @@
 require "test_helper"
 
-class FormattingTest < ActiveSupport::TestCase
+class ConfigurationControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

@@ -1,0 +1,2 @@
+class FormattingStyle < ApplicationRecord
+end

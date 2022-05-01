@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_01_012125) do
     t.index ["mark_down_style_id"], name: "index_configurations_on_mark_down_style_id"
   end
 
-  create_table "mark_down_styles", force: :cascade do |t|
+  create_table "formatting_styles", force: :cascade do |t|
     t.string "name", null: false
   end
 
