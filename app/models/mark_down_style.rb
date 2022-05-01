@@ -1,0 +1,2 @@
+class MarkDownStyle < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class TypeSchedule < ApplicationRecord
+end
