@@ -14,12 +14,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_01_012125) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "configurations", force: :cascade do |t|
-    t.string "token_bot_api", null: false
-    t.bigint "mark_down_style_id", null: false
-    t.index ["mark_down_style_id"], name: "index_configurations_on_mark_down_style_id"
-  end
-
   create_table "formatting_styles", force: :cascade do |t|
     t.string "name", null: false
   end
@@ -31,6 +25,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_01_012125) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type_schedule_id"], name: "index_reminders_on_type_schedule_id"
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.string "token_bot_api", null: false
+    t.bigint "formatting_style_id", null: false
+    t.index ["formatting_style_id"], name: "index_settings_on_formatting_style_id"
   end
 
   create_table "type_schedules", force: :cascade do |t|
