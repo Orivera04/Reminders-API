@@ -30,7 +30,7 @@ class SettingsController < ApplicationController
     setting.attributes = settings_params || {}
 
     if setting.save!
-      render json: { message: "Setting updated successfully.", record: setting  }, status: :ok
+      render json: { message: "Setting updated successfully.", record: setting }, status: :ok
     else
       render json: { error: "Error updating Setting.", record: setting }, status: :bad_request
     end
@@ -40,9 +40,9 @@ class SettingsController < ApplicationController
     setting = Setting.find_by(id: params[:id])
 
     if setting.destroy!
-      render json: { message: "Setting deleted successfully.", record: setting  }, status: :ok
+      render json: { message: "Setting deleted successfully.", record: setting }, status: :ok
     else
-      render json: { error: "Error deletinn Setting.", record: setting }, status: :bad_request
+      render json: { error: "Error deleting Setting.", record: setting }, status: :bad_request
     end
   end
 
