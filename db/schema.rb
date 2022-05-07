@@ -22,6 +22,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_01_012125) do
     t.string "chat_id", null: false
     t.string "message", null: false
     t.bigint "type_schedule_id"
+    t.time "hour_of_execution"
+    t.jsonb "schedules"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type_schedule_id"], name: "index_reminders_on_type_schedule_id"

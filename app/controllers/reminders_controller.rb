@@ -49,6 +49,6 @@ class RemindersController < ApplicationController
   private
 
   def reminders_params
-    params.permit(:chat_id, :message, :type_schedule_id)
+    params.permit(:chat_id, :message, :type_schedule_id, :hour_of_execution, :schedules)
   end
 end
