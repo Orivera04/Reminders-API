@@ -5,6 +5,7 @@ class CreateReminders < ActiveRecord::Migration[7.0]
       t.string :message, null: false
       t.references :type_schedule, null: false
       t.time :hour_of_execution, null: false
+      t.integer :interval_of_execution, null: false
       t.jsonb :schedules, null: false
       t.timestamps
     end

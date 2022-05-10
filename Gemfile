@@ -40,6 +40,9 @@ gem "bootsnap", require: false
 gem "faraday"
 gem "faraday_middleware"
 
+# Use for creating cron jobs.
+gem 'whenever'
+
 group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
