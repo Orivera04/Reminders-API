@@ -46,6 +46,10 @@ gem 'whenever'
 group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner-active_record'
+  gem 'shoulda-matchers'
 end
 
 group :development do
