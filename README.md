@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TypeSchedules -> Here is a catalog of the type of the execution schedule
 
-Things you may want to cover:
+Reminder -> Here is the list of message to be send to the Bot.
 
-* Ruby version
+Configuration -> Here is Stored some configuration for the application work in colaboration with the Telegram Bot
 
-* System dependencies
-
-* ConfigurationApi
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+MarkDownStyle -> List of supported MarkDown Styles of telegram API.
