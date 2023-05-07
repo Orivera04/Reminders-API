@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_01_012125) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_07_152251) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "timescaledb"
 
   create_table "formatting_styles", force: :cascade do |t|
     t.string "name", null: false
@@ -34,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_01_012125) do
   create_table "settings", force: :cascade do |t|
     t.string "token_bot_api", null: false
     t.bigint "formatting_style_id", null: false
+    t.string "description"
     t.index ["formatting_style_id"], name: "index_settings_on_formatting_style_id"
   end
 

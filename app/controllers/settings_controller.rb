@@ -51,6 +51,6 @@ class SettingsController < ApplicationController
   private
 
   def settings_params
-    params.permit(:token_bot_api, :formatting_style_id)
+    params.permit(:token_bot_api, :formatting_style_id, :description)
   end
 end
