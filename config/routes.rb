@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :settings
   resources :reminders
   resources :telegram_triggers, only: [:create]
+  resources :telegram_jobs, only: [:create]
 end
