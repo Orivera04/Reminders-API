@@ -2,7 +2,7 @@
 
 # Purpose: Controller for telegram job trigger
 class TelegramJobsController < ApplicationController
-  def create
+  def index
     ReminderJob.perform_now
 
     render json: { message: 'Executing Job.' }, status: :ok
