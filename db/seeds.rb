@@ -1,18 +1,21 @@
+# frozen_string_literal: true
+
 begin
-    puts "|-----------------------------------|"
-    puts "|         Creating Seeds            |"
-    puts "|-----------------------------------|"
+  puts '|-----------------------------------|'
+  puts '|         Creating Seeds            |'
+  puts '|-----------------------------------|'
 
-    puts "\n ==> Creating Mark Down Styles"
+  puts '\n ==> Creating Mark Down Styles'
 
-    FormattingStyle.find_or_create_by(id: 1, name: "MarkdownV2")
-    FormattingStyle.find_or_create_by(id: 2, name: "HTML")
+  FormattingStyle.find_or_create_by(id: 1, name: 'MarkdownV2')
+  FormattingStyle.find_or_create_by(id: 2, name: 'HTML')
 
-    puts "\n ==> Creating Type Schedules"
+  puts '\n ==> Creating Type Schedules'
 
-    TypeSchedule.find_or_create_by(id: 1, name: "Daily")
-    TypeSchedule.find_or_create_by(id: 2, name: "Recurrent")
-    TypeSchedule.find_or_create_by(id: 3, name: "Specific")
+  # Every day
+  TypeSchedule.find_or_create_by(id: 1, name: 'Daily')
+  # Specific days
+  TypeSchedule.find_or_create_by(id: 2, name: 'Specific')
 
-    puts "\n *** Finished ***"
+  puts '\n *** Finished ***'
 end

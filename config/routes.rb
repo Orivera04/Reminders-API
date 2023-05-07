@@ -1,8 +1,12 @@
+# frozen_string_literal: true
+
+# Purpose: Define the routes for the application.
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :formatting_styles, only: [:index]
-  resources :settings, only: [:index, :show, :create, :update, :destroy]
-  resources :reminders, only: [:index, :show, :create, :update, :destroy]
+  resources :type_schedules, only: [:index]
+  resources :settings
+  resources :reminders
   resources :telegram_triggers, only: [:create]
 end

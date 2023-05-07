@@ -1,0 +1,6 @@
+Lint/MissingSuper:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 30
+Style/RedundantBegin:
+  Enabled: false

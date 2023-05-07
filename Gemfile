@@ -40,19 +40,13 @@ gem "bootsnap", require: false
 gem "faraday"
 gem "faraday_middleware"
 
-# Use for creating cron jobs.
-gem 'whenever'
-
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry'
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'database_cleaner-active_record'
   gem 'shoulda-matchers'
-end
-
-group :development do
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  gem "spring"
 end

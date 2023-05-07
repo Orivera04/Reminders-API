@@ -1,7 +1,28 @@
 require "test_helper"
 
 class RemindersControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get index" do
+    get reminders_index_url
+    assert_response :success
+  end
+
+  test "should get show" do
+    get reminders_show_url
+    assert_response :success
+  end
+
+  test "should get create" do
+    get reminders_create_url
+    assert_response :success
+  end
+
+  test "should get update" do
+    get reminders_update_url
+    assert_response :success
+  end
+
+  test "should get destroy" do
+    get reminders_destroy_url
+    assert_response :success
+  end
 end

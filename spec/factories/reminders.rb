@@ -4,8 +4,7 @@ FactoryBot.define do
     chat_id { rand(1000) }
     message { ('a'..'z').to_a.shuffle.join }
     association :type_schedule, factory: :type_schedule
-    hour_of_execution { "0" }
-    interval_of_execution { 0 }
+    association :setting, factory: :setting
     schedules { "{}" }
   end
 end

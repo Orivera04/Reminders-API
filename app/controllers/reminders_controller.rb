@@ -1,8 +1,10 @@
-class RemindersController < ApplicationController
+# frozen_string_literal: true
 
+# Purpose: Controller for reminders
+class RemindersController < ApplicationController
   def index
-    settings = Reminder.all
-    render json: settings, status: :ok
+    reminders = Reminder.all
+    render json: reminders, status: :ok
   end
 
   def show
@@ -11,7 +13,7 @@ class RemindersController < ApplicationController
     if reminder
       render json: reminder, status: :ok
     else
-      render json: { error: "Reminder not found."}, status: :not_found
+      render json: { error: 'Reminder not found.'}, status: :not_found
     end
   end
 
@@ -19,9 +21,9 @@ class RemindersController < ApplicationController
     reminder = Reminder.new(reminders_params)
 
     if reminder.save!
-      render json: { message: "Reminder created successfully.", record: reminder }, status: :ok
+      render json: { message: 'Reminder created successfully.', record: reminder }, status: :ok
     else
-      render json: { error: "Error creating Reminder.", record: reminder }, status: :bad_request
+      render json: { error: 'Error creating Reminder.', record: reminder }, status: :bad_request
     end
   end
 
@@ -30,9 +32,9 @@ class RemindersController < ApplicationController
     reminder.attributes = reminders_params || {}
 
     if reminder.save!
-      render json: { message: "Reminder updated successfully.", record: reminder }, status: :ok
+      render json: { message: 'Reminder updated successfully.', record: reminder }, status: :ok
     else
-      render json: { error: "Error updating Reminder.", record: reminder }, status: :bad_request
+      render json: { error: 'Error updating Reminder.', record: reminder }, status: :bad_request
     end
   end
 
@@ -40,16 +42,15 @@ class RemindersController < ApplicationController
     reminder = Reminder.find_by(id: params[:id])
 
     if reminder.destroy!
-      render json: { message: "Reminder deleted successfully.", record: reminder }, status: :ok
+      render json: { message: 'Reminder deleted successfully.', record: reminder }, status: :ok
     else
-      render json: { error: "Error deleting Reminder.", record: setting }, status: :bad_request
+      render json: { error: 'Error deleting Reminder.', record: setting }, status: :bad_request
     end
   end
 
   private
 
   def reminders_params
-    params.permit(:chat_id, :message, :type_schedule_id, :hour_of_execution, :interval_of_execution,
-                  :schedules)
+    params.permit(:chat_id, :message, :type_schedule_id, :setting_id ,:schedules)
   end
 end

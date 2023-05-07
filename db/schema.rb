@@ -22,11 +22,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_01_012125) do
     t.string "chat_id", null: false
     t.string "message", null: false
     t.bigint "type_schedule_id", null: false
-    t.time "hour_of_execution", null: false
-    t.integer "interval_of_execution", null: false
     t.jsonb "schedules", null: false
+    t.bigint "setting_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["setting_id"], name: "index_reminders_on_setting_id"
     t.index ["type_schedule_id"], name: "index_reminders_on_type_schedule_id"
   end
 
@@ -40,4 +40,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_01_012125) do
     t.string "name", null: false
   end
 
+  add_foreign_key "reminders", "settings"
 end

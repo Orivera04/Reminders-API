@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
+# Purpose: Controller for telegram manual trigger
 class TelegramTriggersController < ApplicationController
-
   def create
-    reminder = Reminder.find_by(id: params[:reminder_id])
-    reponse = TelegramMessage.call(reminder)
+    reminder = Reminder.find(params[:reminder_id])
 
-    render json: { message: "Reminder send successfully.", api_reponse: reponse }, status: :ok
+    reponse = Telegram::SendMessage.call(reminder)
+
+    render json: { message: 'Reminder send successfully.', api_reponse: reponse }, status: :ok
   end
-
 end
