@@ -7,7 +7,7 @@ module Schedule
     def initialize(reminder)
       @reminder = reminder
       @current_hour = Time.now.strftime('%H:%M')
-      @current_day = Date.today.wday
+      @current_day = Date.today.strftime('%u').to_i
     end
 
     def call
