@@ -47,7 +47,7 @@ Reminder -> Here is a list of messages to be sent to the bot, where you specify 
 | message | The message to include in the reminder |
 | type_schedule_id | The type of reminder to create (1 for daily, 2 for specific day and time) |
 | schedules | An object specifying the schedule for the reminder. For daily reminders, this should be an array of objects, each with a `day` (number 1-7) and an `hour_of_execution` (in format `HH:MM`), specifying the day(s) and time(s) to send the reminder. For specific day and time reminders, this should be an object with a `day_of_month` (number 1-31) and an `execution_hour` (in format `HH:MM`), specifying the exact date and time to send the reminder. |
-| setting_id | The ID of the reminder setting to use (optional) |"
+| setting_id | The ID of the reminder setting to use |"
 
 
 ### Daily Reminder
