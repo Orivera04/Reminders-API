@@ -36,6 +36,9 @@ gem "bootsnap", require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem "rack-cors"
 
+# Serializes data in JSON:API format
+gem 'jsonapi-serializer'
+
 # Use Faraday to make REST requests easily
 gem "faraday"
 gem "faraday_middleware"
