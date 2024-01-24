@@ -7,7 +7,7 @@ module Schedule
     def initialize(reminder)
       @reminder = reminder
       @current_hour = Time.now.strftime('%H:%M')
-      @current_day = Date.today.day
+      @current_day = Date.today.day.to_s
     end
 
     def call
@@ -29,10 +29,10 @@ module Schedule
     end
 
     def execute
-      reminder_schedule = JSON.parse(@reminder.schedules)
+      reminder_schedule = @reminder.schedules
 
-      return unless reminder_schedule['schedule']['day_of_month'] == @current_day &&
-                    reminder_schedule['schedule']['execution_hour'] == @current_hour
+      return unless reminder_schedule['day_of_month'] == @current_day &&
+                    reminder_schedule['hour_of_execution'] == @current_hour
 
       Telegram::SendMessage.call(@reminder)
     end

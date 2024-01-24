@@ -4,10 +4,13 @@
 module Schedule
   # This class is responsible of sending all the reminders of type daily
   class Daily < ApplicationService
+    DAY = 0
+    HOUR_OF_EXECUTION = 1
+
     def initialize(reminder)
       @reminder = reminder
       @current_hour = Time.now.strftime('%H:%M')
-      @current_day = Date.today.strftime('%u').to_i
+      @current_day = Date.today.strftime('%A').downcase
     end
 
     def call
@@ -29,10 +32,10 @@ module Schedule
     end
 
     def execute
-      reminder_schedules = JSON.parse(@reminder.schedules)
+      reminder_schedules = @reminder.schedules
 
-      return unless reminder_schedules['schedules'].any? do |schedule|
-        schedule['day'] == @current_day && schedule['hour_of_execution'] == @current_hour
+      return unless reminder_schedules.any? do |schedule|
+        schedule[DAY] == @current_day && schedule[HOUR_OF_EXECUTION] == @current_hour
       end
 
       Telegram::SendMessage.call(@reminder)

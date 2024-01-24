@@ -11,6 +11,7 @@ class RemindersController < ApplicationController
     reminder = Reminder.find_by(id: params[:id])
 
     if reminder
+      reminder.schedules = Hash[reminder.schedules.sort_by { |day, time| (Date.parse(day).wday - 1) % 7 }] if reminder.type_schedule_id == TypeSchedule::DAILY
       render json: reminder, status: :ok
     else
       render json: { error: 'Reminder not found.'}, status: :not_found
@@ -51,6 +52,8 @@ class RemindersController < ApplicationController
   private
 
   def reminders_params
-    params.permit(:chat_id, :message, :type_schedule_id, :setting_id ,:schedules)
+    params.require(:reminder)
+          .permit(:chat_id, :message, :type_schedule_id, :setting_id, schedules: {})
+
   end
 end
