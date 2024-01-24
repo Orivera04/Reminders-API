@@ -3,7 +3,7 @@
 # Purpose: Controller for reminders
 class RemindersController < ApplicationController
   def index
-    reminders = RemindersSerializer.new(Reminder.all).serializable_hash
+    reminders = RemindersSerializer.new(Reminder.all.order(id: :asc)).serializable_hash
     render json: reminders, status: :ok
   end
 
