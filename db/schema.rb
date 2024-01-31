@@ -10,23 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_07_152251) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_31_162410) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chats", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "chat_id"
+    t.bigint "setting_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["setting_id"], name: "index_chats_on_setting_id"
+  end
 
   create_table "formatting_styles", force: :cascade do |t|
     t.string "name", null: false
   end
 
   create_table "reminders", force: :cascade do |t|
-    t.string "chat_id", null: false
     t.string "message", null: false
     t.bigint "type_schedule_id", null: false
     t.jsonb "schedules", null: false
-    t.bigint "setting_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["setting_id"], name: "index_reminders_on_setting_id"
+    t.bigint "chat_id"
+    t.index ["chat_id"], name: "index_reminders_on_chat_id"
     t.index ["type_schedule_id"], name: "index_reminders_on_type_schedule_id"
   end
 
@@ -41,5 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_07_152251) do
     t.string "name", null: false
   end
 
-  add_foreign_key "reminders", "settings"
+  add_foreign_key "chats", "settings"
+  add_foreign_key "reminders", "chats"
 end

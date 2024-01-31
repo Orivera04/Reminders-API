@@ -53,7 +53,7 @@ class RemindersController < ApplicationController
 
   def reminders_params
     params.require(:reminder)
-          .permit(:chat_id, :message, :type_schedule_id, :setting_id, schedules: {})
+          .permit(:chat_id, :message, :type_schedule_id, schedules: {})
 
   end
 end

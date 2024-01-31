@@ -6,10 +6,11 @@ module Telegram
   class SendMessage < ApplicationService
 
     def initialize(reminder)
-      setting = reminder.setting
+      setting = reminder.chat.setting
       @reminder = reminder
       @endpoint = "#{ENV['TELEGRAM_ENDPOINT']}/bot#{setting.token_bot_api}"
       @parse_mode = setting.formatting_style.name
+      @chat_id = reminder.chat.chat_id
     end
 
     def call
@@ -32,7 +33,7 @@ module Telegram
     end
 
     def set_body
-      @body = { chat_id: @reminder.chat_id, text: @reminder.message, parse_mode: @parse_mode }
+      @body = { chat_id: @chat_id, text: @reminder.message, parse_mode: @parse_mode }
     end
 
     def execute
