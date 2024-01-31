@@ -11,6 +11,10 @@ class RemindersSerializer
   end
 
   attribute :setting_name do |reminder|
-    reminder.setting.description
+    reminder.chat.setting.description
+  end
+
+  attribute :chat_name do |reminder|
+    reminder.chat.name
   end
 end
