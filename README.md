@@ -39,6 +39,20 @@ GET, POST, PUT, DELETE {{HOST}}/settings
 
 <hr/>
 
+Chats -> Here you can store your chat configurations:
+
+| Params        | Value.        |
+| ------------- | ------------- |
+| name  | Name of the chat  |
+| description  | A description of the chat.  |
+| setting_id  | The bot that will be used to send the reminder  |
+
+```
+GET, POST, PUT, DELETE {{HOST}}/chats
+```
+
+
+<hr/>
 Reminder -> Here is a list of messages to be sent to the bot, where you specify the type of schedule.
 
 | Parameter | Description |
@@ -55,21 +69,20 @@ Reminder -> Here is a list of messages to be sent to the bot, where you specify 
 A daily reminder can be sent every day at a specific hour. Here is an example JSON payload for creating a daily reminder:
 ```json
 {
-  "chat_id": "-10015666595133",
   "message": "Hello this is a test.",
   "type_schedule_id": 1,
   "schedules": {
     "schedules": [
-      {"day": 1, "hour_of_execution": "11:30"},
-      {"day": 2, "hour_of_execution": "11:30"},
-      {"day": 3, "hour_of_execution": "11:30"},
-      {"day": 4, "hour_of_execution": "11:30"},
-      {"day": 5, "hour_of_execution": "11:30"},
-      {"day": 6, "hour_of_execution": "11:30"},
-      {"day": 7, "hour_of_execution": "11:30"}
+      "monday": "11:30",
+      "tuesday": "11:30",
+      "wednesday": "11:30",
+      "thursday": "11:30",
+      "friday": "11:30",
+      "saturday": "11:30",
+      "sunday": "11:30"
     ]
   },
-  "setting_id": 1
+  "chat_id": 1
 }
 ```
 
@@ -77,7 +90,6 @@ A daily reminder can be sent every day at a specific hour. Here is an example JS
 A specific reminder is sent at a specific day and hour of the month. Here is an example JSON payload for creating a specific reminder:
 ```json
 {
-  "chat_id": "-1001962703227",
   "type_schedule_id": 2,
   "schedules": {
     "schedule": {
@@ -85,7 +97,7 @@ A specific reminder is sent at a specific day and hour of the month. Here is an 
       "execution_hour": "10:00"
     }
   },
-  "setting_id": 2,
+  "chat_id": 2,
   "message": "Hi Specific Test"
 }
 ```
